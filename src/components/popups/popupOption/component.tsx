@@ -41,6 +41,10 @@ class PopupOption extends React.Component<PopupOptionProps> {
     this.props.handleMenuMode("dict");
     this.props.handleOriginalText(getSelection(this.props.currentBook.format));
   };
+  handleAssistant = () => {
+    this.props.handleMenuMode("assistant");
+    this.props.handleOriginalText(getSelection(this.props.currentBook.format));
+  };
   handleDigest = async () => {
     let bookKey = this.props.currentBook.key;
     let bookLocation = ConfigService.getObjectConfig(
@@ -254,9 +258,12 @@ class PopupOption extends React.Component<PopupOptionProps> {
                         this.handleDict();
                         break;
                       case 6:
-                        this.handleSearchInternet();
+                        this.handleAssistant();
                         break;
                       case 7:
+                        this.handleSearchInternet();
+                        break;
+                      case 8:
                         this.handleSpeak();
                         break;
                       default:
